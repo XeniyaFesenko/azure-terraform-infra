@@ -8,6 +8,7 @@ terraform {
 
 # Terraform backend configuration block -precreated
   backend "azurerm" {
+    subscription_id      = "96cb683f-4550-464a-8fcf-a7054553e9e6"  
     resource_group_name  = "poc"
     storage_account_name = "xentfs"
     container_name       = "xentfs-container"
@@ -15,10 +16,6 @@ terraform {
   }
 }
 
-
-provider "azurerm" {
-  features {}
-  use_oidc = true
 }
 ## Azure RG
 resource "azurerm_resource_group" "myrgcloudquickpocs" {
