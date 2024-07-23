@@ -1,22 +1,28 @@
+##################################################################################
+# TERRAFORM CONFIG
+##################################################################################
 terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 3.7.0"
+    required_providers {
+        azurerm = {
+            source = "hashicorp/azurerm"
+            version = "~> 3.7"
+        }
     }
-  }
-
-# Terraform backend configuration block -precreated
-  backend "azurerm" {
-    subscription_id      = "96cb683f-4550-464a-8fcf-a7054553e9e6"  
-    resource_group_name  = "poc"
-    storage_account_name = "xentfs"
-    container_name       = "xentfs-container"
-    key                  = "xentfs-container.tfstate"
-  }
+    backend "azurerm" {
+        key = "xentfs-container.tfstate"
+    }
 }
 
+
+##################################################################################
+# PROVIDERS
+##################################################################################
+
+provider "azurerm" {
+  features {}
 }
+
+
 ## Azure RG
 resource "azurerm_resource_group" "myrgcloudquickpocs" {
   name     = "cloudquickpocsrg001"
