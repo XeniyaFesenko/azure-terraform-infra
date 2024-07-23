@@ -12,13 +12,12 @@ terraform {
     storage_account_name = "xentfs"
     container_name       = "xentfs-container"
     key                  = "xentfs-container.tfstate"
-    use_oidc             = true
+
   }
 }
 
 provider "azurerm" {
   features {}
-  use_oidc = true
 }
 
 ## Azure RG
