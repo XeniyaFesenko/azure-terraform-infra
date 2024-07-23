@@ -1,27 +1,25 @@
-##################################################################################
-# TERRAFORM CONFIG
-##################################################################################
 terraform {
-    required_providers {
-        azurerm = {
-            source = "hashicorp/azurerm"
-            version = "~> 3.7"
-        }
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.7.0"
     }
-    backend "azurerm" {
-        key = "xentfs-container.tfstate"
-    }
+  }
+
+  # Update this block with the location of your terraform state file
+  backend "azurerm" {
+    resource_group_name  = "poc"
+    storage_account_name = "xentfs"
+    container_name       = "xentfs-container"
+    key                  = "xentfs-container.tfstate"
+    use_oidc             = true
+  }
 }
-
-
-##################################################################################
-# PROVIDERS
-##################################################################################
 
 provider "azurerm" {
   features {}
+  use_oidc = true
 }
-
 
 ## Azure RG
 resource "azurerm_resource_group" "myrgcloudquickpocs" {
