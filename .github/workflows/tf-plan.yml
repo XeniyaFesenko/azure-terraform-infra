@@ -20,7 +20,10 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
-
+        run: 
+           - echo ${PWD}
+           - ls -l
+           - "cd ${CODEBUILD_SRC_DIR}/${CODE_SRC_DIR}"
       - name: Terraform Init
         run: terraform init
 
