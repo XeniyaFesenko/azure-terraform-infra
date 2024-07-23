@@ -11,7 +11,7 @@ terraform {
     resource_group_name  = "poc"
     storage_account_name = "xentfs"
     container_name       = "xentfs-container"
-    key                  = "3iEAjmT2Ss+VYsP/QYo8yvi2j3RfM2vZz9ngGGebLn5cznUZ5mlGdTE1nS0O8JKdKMb+DhqSQ1RN+ASt4V6Rig=="
+    key                  = "xentfs-container.tfstate"
   }
 }
 
